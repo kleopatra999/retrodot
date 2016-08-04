@@ -1,0 +1,15 @@
+/.bundle
+/coverage
+/log/*.log
+/tmp
+/config/database.yml
+/.env
+/public/assets
+
+*.swp
+.env
+.powenv
+.vagrant
+Vagrantfile
+
+.DS_Store
