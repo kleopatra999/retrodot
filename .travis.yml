@@ -3,5 +3,9 @@ rvm:
   - 2.3.0
 sudo: false
 bundler_args: --without development
+before_script:
+  - cp config/database.yml{.travis,}
+  - bundle exec rake db:create:all
+  - RAILS_ENV=test bundle exec rake db:migrate
 addons:
   postgresql: "9.4"

@@ -6,6 +6,8 @@
 /.env
 /public/assets
 
+log
+
 *.swp
 .env
 .powenv

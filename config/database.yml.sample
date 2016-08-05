@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: retrodot-development
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: retrodot-test
+  host: localhost

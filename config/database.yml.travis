@@ -1,0 +1,5 @@
+test:
+  adapter: postgresql
+  username: postgres
+  database: retrodot_travis
+  min_messages: ERROR
