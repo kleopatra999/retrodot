@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module Retrodot
   class Application < Rails::Application
     config.autoload_paths << "#{Rails.root}/lib"
-
+    config.autoload_paths += %W(#{Rails.root}/app/mediators)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
