@@ -10,17 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805132331) do
+ActiveRecord::Schema.define(version: 20160809134428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string  "name"
+    t.integer "incident_id"
+    t.index ["incident_id"], name: "index_categories_on_incident_id", using: :btree
+  end
+
   create_table "incidents", force: :cascade do |t|
-    t.date     "date"
+    t.date     "created"
+    t.date     "resolved"
+    t.integer  "duration"
+    t.string   "state"
     t.string   "title"
     t.integer  "issue"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "public_followup"
+    t.date     "public_followup_date"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "remediations", force: :cascade do |t|
