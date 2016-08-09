@@ -6,7 +6,7 @@ class CreateRetrospectives < ActiveRecord::Migration[5.0]
       t.timestamps null: false
 
       t.belongs_to :incident
-      t.belongs_to :remediation
+      t.belongs_to :category
     end
   end
 end
