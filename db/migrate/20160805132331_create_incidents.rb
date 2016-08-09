@@ -1,12 +1,12 @@
 class CreateIncidents < ActiveRecord::Migration[5.0]
   def change
     create_table :incidents do |t|
-      t.date       :created
-      t.date       :resolved
+      t.datetime   :started_at
+      t.datetime   :resolved_at
       t.integer    :duration
       t.string     :state
       t.string     :title
-      t.integer    :issue
+      t.integer    :status_incident_id
       t.boolean    :public_followup
       t.date       :public_followup_date
       t.timestamps null: false

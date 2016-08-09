@@ -1,7 +1,7 @@
 class CreateRemediations < ActiveRecord::Migration[5.0]
   def change
     create_table :remediations do |t|
-      t.date       :date
+      t.date       :created_on
       t.string     :description
       t.boolean    :completed
       t.string     :pull_request
