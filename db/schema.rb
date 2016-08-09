@@ -16,18 +16,16 @@ ActiveRecord::Schema.define(version: 20160809134428) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string  "name"
-    t.integer "incident_id"
-    t.index ["incident_id"], name: "index_categories_on_incident_id", using: :btree
+    t.string "name"
   end
 
   create_table "incidents", force: :cascade do |t|
-    t.date     "created"
-    t.date     "resolved"
+    t.datetime "started_at"
+    t.datetime "resolved_at"
     t.integer  "duration"
     t.string   "state"
     t.string   "title"
-    t.integer  "issue"
+    t.integer  "status_incident_id"
     t.boolean  "public_followup"
     t.date     "public_followup_date"
     t.datetime "created_at",           null: false
@@ -35,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160809134428) do
   end
 
   create_table "remediations", force: :cascade do |t|
-    t.date     "date"
+    t.date     "created_on"
     t.string   "description"
     t.boolean  "completed"
     t.string   "pull_request"
@@ -48,12 +46,12 @@ ActiveRecord::Schema.define(version: 20160809134428) do
   create_table "retrospectives", force: :cascade do |t|
     t.date     "date"
     t.string   "description"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "incident_id"
-    t.integer  "remediation_id"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_retrospectives_on_category_id", using: :btree
     t.index ["incident_id"], name: "index_retrospectives_on_incident_id", using: :btree
-    t.index ["remediation_id"], name: "index_retrospectives_on_remediation_id", using: :btree
   end
 
 end
